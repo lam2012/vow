@@ -1,0 +1,10 @@
+test "map literal and blocks" {
+  let m = {"k": 42, "j": 7}
+  assert m["k"] == 42
+  assert m["j"] == 7
+  if true {
+    assert 1 == 1
+  } else {
+    assert 1 == 2
+  }
+}

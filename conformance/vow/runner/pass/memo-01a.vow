@@ -1,0 +1,5 @@
+let tag = 1
+
+test "tag is one" {
+  assert tag == 1
+}

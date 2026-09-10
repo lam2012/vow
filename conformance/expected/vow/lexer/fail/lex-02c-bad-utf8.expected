@@ -1,0 +1,3 @@
+exit: 2
+note: lex error, invalid UTF-8 input (raw bytes, see MINTING.md)
+code: E2000

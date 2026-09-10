@@ -1,0 +1,3 @@
+exit: 3
+note: check error, call inside top-level let initializer
+code: E3008

@@ -1,0 +1,9 @@
+func one() {
+  return 1
+}
+
+let z = one()
+
+func main() {
+  return 0
+}

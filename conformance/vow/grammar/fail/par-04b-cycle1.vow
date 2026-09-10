@@ -1,0 +1,5 @@
+import "par-04b-cycle2.vow" as n hash "a4a69d8270b7510616444069e8aa65525d7c65f9ae30c3f4b03bd37a9a0d5a5b"
+
+func main() {
+  return 0
+}

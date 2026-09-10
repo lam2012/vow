@@ -1,0 +1,3 @@
+exit: 2
+note: lex error, unknown string escape
+code: E2002

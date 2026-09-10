@@ -1,0 +1,7 @@
+func fs() {
+  return 1
+}
+
+func main() {
+  return 0
+}

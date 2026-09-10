@@ -1,0 +1,11 @@
+func names() effect[fs.list["vow/lexer/pass/"]] {
+  return fs.list(["vow/lexer/pass/"])
+}
+
+test "listing is byte-sorted" {
+  assert names() == ["lex-01-crlf.vow", "lex-01-tokens.vow"]
+}
+
+test "strings are byte-oriented" {
+  assert "abc"[1] == "b"
+}

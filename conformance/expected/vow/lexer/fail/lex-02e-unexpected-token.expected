@@ -1,0 +1,3 @@
+exit: 2
+note: parse error, unexpected token (no while loop at stage-0)
+code: E2004

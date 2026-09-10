@@ -1,0 +1,3 @@
+exit: 3
+note: check error, undeclared effect name in clause
+code: E3001

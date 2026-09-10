@@ -1,0 +1,7 @@
+func f() effect[fs.teleport["x"]] {
+  return 1
+}
+
+func main() {
+  return 0
+}

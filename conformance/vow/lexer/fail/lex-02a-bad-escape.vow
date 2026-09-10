@@ -1,0 +1,4 @@
+func main() {
+  let s = "bad \q escape"
+  return 0
+}

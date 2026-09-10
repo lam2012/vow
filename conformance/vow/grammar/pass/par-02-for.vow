@@ -1,0 +1,13 @@
+func first_big(l) {
+  for x in l {
+    if x > 2 {
+      return x
+    }
+  }
+  return -1
+}
+
+test "for visits in order" {
+  assert first_big([1, 5, 3]) == 5
+  assert first_big([1, 2]) == -1
+}

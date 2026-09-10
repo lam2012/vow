@@ -1,0 +1,4 @@
+func main() effect[fs.read["vow/lexer/pass/"]] {
+  let x = fs.read(["/etc/hostname"])
+  return 0
+}

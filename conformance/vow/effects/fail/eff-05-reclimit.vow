@@ -1,0 +1,7 @@
+func loop() {
+  return loop()
+}
+
+func main() {
+  return loop()
+}

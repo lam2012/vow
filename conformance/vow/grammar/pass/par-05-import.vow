@@ -1,0 +1,5 @@
+import "par-05-mod.vow" as m hash "3eed60fd5c579e9542ebe0541c5de1c1d4482a39d470dc8714e2a5e3a034ae60"
+
+test "import binds without executing" {
+  assert m.answer() == 42
+}

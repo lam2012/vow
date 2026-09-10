@@ -1,0 +1,11 @@
+func dup() {
+  return 1
+}
+
+func dup() {
+  return 2
+}
+
+func main() {
+  return 0
+}

@@ -1,0 +1,4 @@
+func main() {
+  let l = [1, 2]
+  return l[5]
+}

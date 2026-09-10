@@ -1,0 +1,1 @@
+test "mini fail" { assert 1 == 2 }

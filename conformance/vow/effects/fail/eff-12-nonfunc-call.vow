@@ -1,0 +1,4 @@
+func main() {
+  let f = 42
+  return f()
+}

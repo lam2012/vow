@@ -1,0 +1,3 @@
+func main() effect[fs.read["a" + "b"]] {
+  return 0
+}

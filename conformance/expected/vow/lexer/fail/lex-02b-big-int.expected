@@ -1,0 +1,3 @@
+exit: 2
+note: lex error, integer literal outside signed 64-bit range
+code: E2003

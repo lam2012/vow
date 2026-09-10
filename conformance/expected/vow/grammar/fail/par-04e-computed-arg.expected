@@ -1,0 +1,3 @@
+exit: 2
+note: parse error E2006, non-literal effect scope (reclassified from recalled E3002)
+code: E2006

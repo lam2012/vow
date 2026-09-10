@@ -1,0 +1,89 @@
+# driver.vow — negative-case and mini-suite driver for conformance/.
+#
+# Files under fail/ contain no test blocks: the top-level `vow test` run
+# ignores them, and this driver executes them with `vow run` instead.
+# Runner mini-suites live under _mini-*/ directories, skipped by
+# collection, and are executed here with `vow test`.
+#
+# Conventions assumed here, pending joint ratification (Turn 15):
+# - test blocks may call functions that declare effects;
+# - spawned processes inherit the harness working directory (repo root),
+#   so argv paths below are repo-root-relative while fs.* paths inside
+#   fixtures resolve against the conformance/ source root;
+# - collection is recursive; files and directories starting with "_"
+#   are skipped;
+# - capability call shapes: fs.read([path]) returns a string,
+#   fs.write([path, content]) returns bytes written as int,
+#   fs.list([dir]) returns entry names as a list of strings,
+#   proc.spawn([cmd, args...]) returns a map {exit, stdout, stderr}.
+
+func runvow(args) effect[proc.spawn["vow"]] {
+  return proc.spawn(args)
+}
+
+func exitcode(path, want) effect[proc.spawn["vow"]] {
+  let r = runvow(["vow", "run", path])
+  return r["exit"] == want
+}
+
+func testexit(dir, want) effect[proc.spawn["vow"]] {
+  let r = runvow(["vow", "test", dir])
+  return r["exit"] == want
+}
+
+test "parse errors exit 2" {
+  assert exitcode("conformance/vow/grammar/fail/par-04e-computed-arg.vow", 2)
+}
+
+test "lex errors exit 2" {
+  assert exitcode("conformance/vow/lexer/fail/lex-02a-bad-escape.vow", 2)
+  assert exitcode("conformance/vow/lexer/fail/lex-02b-big-int.vow", 2)
+  assert exitcode("conformance/vow/lexer/fail/lex-02c-bad-utf8.vow", 2)
+  assert exitcode("conformance/vow/lexer/fail/lex-02d-lone-cr.vow", 2)
+  assert exitcode("conformance/vow/lexer/fail/lex-02e-unexpected-token.vow", 2)
+  assert exitcode("conformance/vow/lexer/fail/lex-02f-unterminated.vow", 2)
+}
+
+test "check errors exit 3" {
+  assert exitcode("conformance/vow/grammar/fail/par-04a-dup-key.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04b-cycle1.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04c-bad-hash.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04d-bad-effect.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04i-same-dir-bad-hash.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04f-escape-root.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04g-call-in-let.vow", 3)
+  assert exitcode("conformance/vow/effects/fail/eff-06-transitive.vow", 3)
+  assert exitcode("conformance/vow/effects/fail/eff-01-undeclared.vow", 3)
+  assert exitcode("conformance/vow/effects/fail/eff-04-no-clock-net.vow", 3)
+  assert exitcode("conformance/vow/runner/run-03-nomain.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04h-unknown-name.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04j-dup-func.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04k-reserved-root.vow", 3)
+  assert exitcode("conformance/vow/grammar/fail/par-04l-bare-alias.vow", 3)
+}
+
+test "runtime failures exit 5" {
+  assert exitcode("conformance/vow/effects/fail/eff-02a-read-outside.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-02b-spawn-undeclared.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-02c-write-outside.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-05-reclimit.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-07-overflow.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-08-divzero.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-09-badindex.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-10-missingkey.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-12-nonfunc-call.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-13-missing-file.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-14-dynamic-effect.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-15-type-error.vow", 5)
+  assert exitcode("conformance/vow/effects/fail/eff-17-arity.vow", 5)
+}
+
+test "exit code propagates" {
+  assert exitcode("conformance/vow/runner/run-03-exit7.vow", 7)
+  assert exitcode("conformance/vow/runner/run-04-main-nonint.vow", 5)
+}
+
+test "mini suites" {
+  assert testexit("conformance/vow/runner/_mini-run-01", 0)
+  assert testexit("conformance/vow/runner/_mini-run-02", 4)
+}

@@ -1,0 +1,7 @@
+import "par-04a-dup-key.vow" as m hash "d8818647e50796520d489451d5281528ca81d8092dce629f53193f66b8f6b3ca"
+
+let y = m
+
+func main() {
+  return 0
+}

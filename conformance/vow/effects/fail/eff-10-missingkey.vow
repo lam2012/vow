@@ -1,0 +1,4 @@
+func main() {
+  let m = {"a": 1}
+  return m["b"]
+}

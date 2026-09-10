@@ -1,0 +1,3 @@
+exit: 3
+note: check error, reserved capability root as declaration name (E3009)
+code: E3009

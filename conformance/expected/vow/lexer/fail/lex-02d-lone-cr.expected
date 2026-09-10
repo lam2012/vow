@@ -1,0 +1,3 @@
+exit: 2
+note: lex error, lone CR line ending (raw bytes, see MINTING.md)
+code: E2001

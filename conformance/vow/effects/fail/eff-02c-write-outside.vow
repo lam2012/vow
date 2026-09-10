@@ -1,0 +1,4 @@
+func main() effect[fs.write["wdir/"]] {
+  let n = fs.write(["/escape.txt", "hi"])
+  return n
+}

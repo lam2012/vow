@@ -1,0 +1,8 @@
+func readback() effect[fs.read["vow/lexer/pass/"], lock.check["vow/effects/pass/"]] {
+  let c = fs.read(["vow/lexer/pass/lex-01-tokens.vow"])
+  return lock.check(["vow/effects/pass/probe.lock"])
+}
+
+test "lock verifies true" {
+  assert readback()
+}

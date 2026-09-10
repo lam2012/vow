@@ -1,0 +1,4 @@
+exit: 3
+note: escape fires before the pin is examined (E3006 in practice under
+  entry-dir root); genuine hash-mismatch coverage lives in par-04i
+code: E3006

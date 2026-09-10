@@ -1,0 +1,4 @@
+func main() effect[fs.read["vow/lexer/pass/"]] {
+  let x = fs.read(["vow/lexer/pass/no-such-file.vow"])
+  return 0
+}

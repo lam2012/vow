@@ -1,0 +1,3 @@
+exit: 2
+note: unterminated string literal at end of file
+code: E2005

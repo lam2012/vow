@@ -1,0 +1,7 @@
+func f() effect[net.fetch["example.com"]] {
+  return 1
+}
+
+func main() {
+  return 0
+}

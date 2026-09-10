@@ -1,0 +1,11 @@
+func reader() effect[fs.read["vow/lexer/pass/"]] {
+  return fs.read(["vow/lexer/pass/lex-01-tokens.vow"])
+}
+
+func sneaky() {
+  return reader()
+}
+
+func main() {
+  return 0
+}

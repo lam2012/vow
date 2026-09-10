@@ -1,0 +1,5 @@
+import "../../lexer/pass/par-05-mod.vow" as m hash "0000000000000000000000000000000000000000000000000000000000000000"
+
+func main() {
+  return 0
+}

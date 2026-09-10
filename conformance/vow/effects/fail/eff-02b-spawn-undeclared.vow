@@ -1,0 +1,4 @@
+func main() effect[proc.spawn["vow"]] {
+  let r = proc.spawn(["othercmd", "x"])
+  return 0
+}

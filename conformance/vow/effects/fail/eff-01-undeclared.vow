@@ -1,0 +1,4 @@
+func main() {
+  let x = fs.read(["vow/lexer/pass/lex-01-tokens.vow"])
+  return 0
+}

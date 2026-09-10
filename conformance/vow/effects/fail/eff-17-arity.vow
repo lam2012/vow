@@ -1,0 +1,7 @@
+func one(a) {
+  return a
+}
+
+func main() {
+  return one(1, 2)
+}

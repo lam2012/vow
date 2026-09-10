@@ -1,0 +1,9 @@
+test "lexer tokens" {
+  assert 42 == 42
+  assert "a\nb\tc\\d\"e" == "a\nb\tc\\d\"e"
+  assert 2 + 3 * 4 == 14
+  assert (2 + 3) * 4 == 20
+  assert !true == false
+  assert true && true == true
+  assert "abc" == "abc"
+}
