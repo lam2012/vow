@@ -1,0 +1,16 @@
+func check_lock() effect[lock.check["."]] {
+  return lock.check(["data.lock"])
+}
+
+func main() effect[lock.check["."]] {
+  let ok = check_lock()
+  if ok {
+    return 0
+  } else {
+    return 1
+  }
+}
+
+test "lock verifies true" {
+  assert check_lock()
+}

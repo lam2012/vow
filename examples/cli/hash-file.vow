@@ -1,0 +1,14 @@
+func read_and_hash() effect[fs.read["."], hash.sha256] {
+  let c = fs.read(["data.txt"])
+  return hash.sha256([c])
+}
+
+func main() effect[fs.read["."], hash.sha256] {
+  let h = read_and_hash()
+  return 0
+}
+
+test "hash correct" {
+  let h = read_and_hash()
+  assert h == "14b53e8dbfb7dc7a21859ca927c368db06753c767d4722c46c77e01b56c3dd1a"
+}

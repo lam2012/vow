@@ -1,0 +1,7 @@
+func main() {
+  return 0
+}
+
+test "hello pure" {
+  assert 1 == 1
+}
