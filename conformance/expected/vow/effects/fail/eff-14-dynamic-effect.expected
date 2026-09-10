@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure, dynamic effect violation (E5009)
+code: E5009

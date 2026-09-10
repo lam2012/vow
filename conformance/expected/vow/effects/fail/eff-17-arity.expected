@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure, runtime type error (E5012)
+code: E5012

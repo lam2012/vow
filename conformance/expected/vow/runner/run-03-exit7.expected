@@ -1,0 +1,2 @@
+exit: 7
+note: main return value propagates as process exit code

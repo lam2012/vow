@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure, recursion limit breach
+code: E5006

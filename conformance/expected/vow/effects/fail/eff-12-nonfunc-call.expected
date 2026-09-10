@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure; calling a value that is not a function (E5008)
+code: E5008

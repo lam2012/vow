@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure, spawn of undeclared command (blocked, never executes)
+code: E5004

@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure, main must return an integer (E5011)
+code: E5011

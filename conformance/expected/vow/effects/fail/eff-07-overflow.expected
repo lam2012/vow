@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure, signed 64-bit integer overflow
+code: E5000

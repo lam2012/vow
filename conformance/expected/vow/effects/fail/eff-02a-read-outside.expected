@@ -1,0 +1,3 @@
+exit: 5
+note: runtime failure, read outside declared paths
+code: E5004
